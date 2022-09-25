@@ -25,4 +25,13 @@ class Player {
 }
 
 class Bullet {
+  constructor(parent) {
+    /*
+      * Bullet class
+      * params:
+        - parent: PIXI.Sprite "The entity shooting it"
+      * returns:
+        null(is a container)
+    */
+  }
 }
