@@ -1,11 +1,10 @@
 class Player {
   constructor(container) {
-    /*
-      * Player class
+    /* Player class
       * params:
         - container: PIXI.Container | PIXI.app "The parent container"
       * returns:
-        null(is a constructor)
+          null(is a constructor)
     */
 
     /* Create Sprite */
@@ -20,18 +19,22 @@ class Player {
     /* Add the player */
     container.addChild(this.body);
   } update(dt) {
-    /* TODO */
+    /* Update method(moves the character, etc...)
+      * params:
+        - dt: Number "The game's delta time"
+      * returns:
+          null
+    */
   }
 }
 
 class Bullet {
   constructor(parent) {
-    /*
-      * Bullet class
+    /* Bullet class
       * params:
         - parent: PIXI.Sprite "The entity shooting it"
       * returns:
         null(is a container)
     */
-  }
+  } update(dt) {}
 }
