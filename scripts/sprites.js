@@ -6,7 +6,7 @@ const PLAYER_HEIGHT = 150;
 const BULLET_WIDTH = 75;
 const BULLET_HEIGHT = 200;
 const BULLET_ANCHOR = .5;
-const BULLET_ROTATION = -90
+const BULLET_ROTATION = degToRad(-90);
 
 class Player {
   constructor(container) {

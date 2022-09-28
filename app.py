@@ -5,7 +5,7 @@ app = App(__name__)
 @app.route('/')
 def index():
     return render('index.html')
- 
+
 class Files:
     class Scripts:
         @app.route('/scripts/main.js')
@@ -17,6 +17,10 @@ class Files:
             return send_file(
                 'scripts/keyTracker.js', mimetype = 'text/javascript'
             )
+
+        @app.route('/scripts/sprites.js')
+        def sprites_js():
+            return SPRI
 
     class Assets:
         @app.route('/assets/plane.png')
