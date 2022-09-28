@@ -5,12 +5,15 @@ class KeyTracker {
 
     // window event listeners
     window.addEventListener('keydown', (e) => {
+      if (e.isComposing || e.keyCode === 229) {
+        return;
+      }
+
       this.keysPressed[e.keyCode] = true;
       if (this.keyDownListeners[e.keyCode] === undefined) {
         this.keyDownListeners[e.keyCode] = [];
         return;
       }
-      console.log(e.keyCode);
 
       for (let keyDownListener of this.keyDownListeners[e.keyCode]) {
         keyDownListener();
@@ -18,6 +21,10 @@ class KeyTracker {
     });
 
     window.addEventListener('keyup', (e) => {
+      if (e.isComposing || e.keyCode === 229) {
+        return;
+      }
+      
       this.keysPressed[e.keyCode] = false;
     });
   } addKeyListener(keyCode, fn, interval = 1 / 60) {

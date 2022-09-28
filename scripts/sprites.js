@@ -8,8 +8,6 @@ const BULLET_HEIGHT = 200;
 const BULLET_ANCHOR = .5;
 const BULLET_ROTATION = degToRad(-90);
 
-const BULLETS = [];
-
 class Player {
   constructor(container) {
     /* Player class
@@ -51,10 +49,14 @@ class BulletManager {
 
     this.bullets = [];
 
+    this.parent = parent;
+
   } update(dt) {
     for (bullet of this.bullets) {
       bullet.update(dt, this.bullets);
     }
+  } shoot() {
+    this.bullets.push(new Bullet(this.parent));
   }
 }
 
@@ -72,6 +74,9 @@ class Bullet {
     this.body.y = parent.y;
     this.body.width = BULLET_WIDTH;
     this.body.height = BULLET_HEIGHT;
+
+    this.body.rotation = BULLET_ROTATION;
+    this.body.anchor.set(BULLET_ANCHOR);
 
   } update(dt, bullets) {
     /* The update method

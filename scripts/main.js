@@ -12,22 +12,7 @@ const gameContainer = new PIXI.Container(); // Main container
 app.stage.addChild(gameContainer);
 
 const player = new Player(gameContainer);
-const createPlayerBullet = () => {
-  /*
-    * Obsolete
-    * - TODO: Remove
-  */
-  let bullet = PIXI.Sprite.fromImage('assets/bullet.png');
-  bullet.x = player.body.x + (player.body.width / 2);
-  bullet.y = player.body.y;
-  bullet.width = 75;
-  bullet.height = 200;
-
-  bullet.anchor.set(.5);
-  bullet.rotation = -90 * (3.14 / 180);
-
-  return bullet;
-}
+const playerBullets = new BulletManager(player);
 
 // Game variables
 let dt = 0;
@@ -37,7 +22,7 @@ app.ticker.add((delta) => {
   dt = delta;
 
   player.update(dt);
-  
+
 });
 
 // Key presses
@@ -50,8 +35,7 @@ keyTracker.addKeyListener(68, () => {
 })
 
 keyTracker.addKeyDownListener(32, () => {
-  let bullet = createPlayerBullet();
-  gameContainer.addChild(bullet);
+  playerBullets.shoot();
 })
 
 // Game start
