@@ -11,15 +11,15 @@ const keyTracker = new KeyTracker();
 const gameContainer = new PIXI.Container(); // Main container
 app.stage.addChild(gameContainer);
 
-const player = new Player();
+const player = new Player(gameContainer);
 const createPlayerBullet = () => {
   /*
     * Obsolete
     * - TODO: Remove
   */
   let bullet = PIXI.Sprite.fromImage('assets/bullet.png');
-  bullet.x = player.x;
-  bullet.y = player.y;
+  bullet.x = player.body.x + (player.body.width / 2);
+  bullet.y = player.body.y;
   bullet.width = 75;
   bullet.height = 200;
 
@@ -36,9 +36,8 @@ let dt = 0;
 app.ticker.add((delta) => {
   dt = delta;
 
-  if (player.x + 170 < 0) {
-    player.x = 1280;
-  }
+  player.update(dt);
+  
 });
 
 // Key presses

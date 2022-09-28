@@ -8,6 +8,8 @@ const BULLET_HEIGHT = 200;
 const BULLET_ANCHOR = .5;
 const BULLET_ROTATION = degToRad(-90);
 
+const BULLETS = [];
+
 class Player {
   constructor(container) {
     /* Player class
@@ -38,19 +40,45 @@ class Player {
   }
 }
 
+class BulletManager {
+  constructor(parent) {
+    /* BulletManager class
+      * params:
+        - parent: PIXI.Sprite "The entity that shoots the bullets"
+      * returns:
+        - null(is a constructor)
+    */
+
+    this.bullets = [];
+
+  } update(dt) {
+    for (bullet of this.bullets) {
+      bullet.update(dt, this.bullets);
+    }
+  }
+}
+
 class Bullet {
   constructor(parent) {
     /* Bullet class
       * params:
         - parent: PIXI.Sprite "The entity shooting it"
       * returns:
-        null(is a container)
+        null(is a constructor)
     */
+
     this.body = PIXI.Sprite.from('assets/bullet.png');
     this.body.x = parent.x + (parent.width / 2);
     this.body.y = parent.y;
     this.body.width = BULLET_WIDTH;
     this.body.height = BULLET_HEIGHT;
 
-  } update(dt) {}
+  } update(dt, bullets) {
+    /* The update method
+      * Meant to be called from a  bullet manager
+      * params:
+        - dt: Number "The game's delta time"
+        - bullets: Array<Bullet> "Bullet manager's active bullets"
+    */
+  }
 }
