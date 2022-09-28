@@ -11,13 +11,7 @@ const keyTracker = new KeyTracker();
 const gameContainer = new PIXI.Container(); // Main container
 app.stage.addChild(gameContainer);
 
-const player = PIXI.Sprite.fromImage('assets/plane.png');
-player.width = 190;
-player.height = 150;
-player.x = 640 - (190 / 2);
-player.y = 400;
-gameContainer.addChild(player);
-
+const player = new Player();
 const createPlayerBullet = () => {
   /*
     * Obsolete
@@ -49,11 +43,11 @@ app.ticker.add((delta) => {
 
 // Key presses
 keyTracker.addKeyListener(65, () => {
-  player.x -= 3 * dt;
+  player.body.x -= 3 * dt;
 });
 
 keyTracker.addKeyListener(68, () => {
-  player.x += 3 * dt
+  player.body.x += 3 * dt
 })
 
 keyTracker.addKeyDownListener(32, () => {
