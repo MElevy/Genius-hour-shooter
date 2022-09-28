@@ -20,7 +20,7 @@ class Files:
 
         @app.route('/scripts/sprites.js')
         def sprites_js():
-            return SPRI
+            return send_file('scripts/sprites.js', mimetype = 'text/javascript')
 
     class Assets:
         @app.route('/assets/plane.png')
