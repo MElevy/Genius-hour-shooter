@@ -52,7 +52,7 @@ class BulletManager {
     this.parent = parent;
 
   } update(dt) {
-    for (bullet of this.bullets) {
+    for (let bullet of this.bullets) {
       bullet.update(dt, this.bullets);
     }
   } shoot() {
