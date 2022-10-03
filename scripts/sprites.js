@@ -77,6 +77,8 @@ class Bullet {
 
     this.body.anchor.set(BULLET_ANCHOR);
     this.body.rotation = BULLET_ROTATION;
+    
+    this.parent = parent;
 
   } update(dt, bullets) {
     /* The update method
