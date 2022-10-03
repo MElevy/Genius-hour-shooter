@@ -22,7 +22,7 @@ app.ticker.add((delta) => {
   dt = delta;
 
   player.update(dt);
-
+  playerBullets.update();
 });
 
 // Key presses

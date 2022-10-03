@@ -75,8 +75,8 @@ class Bullet {
     this.body.width = BULLET_WIDTH;
     this.body.height = BULLET_HEIGHT;
 
-    this.body.rotation = BULLET_ROTATION;
     this.body.anchor.set(BULLET_ANCHOR);
+    this.body.rotation = BULLET_ROTATION;
 
   } update(dt, bullets) {
     /* The update method
