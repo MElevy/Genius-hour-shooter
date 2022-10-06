@@ -56,7 +56,8 @@ class BulletManager {
     this.container = container;
 
   } update(dt) {
-    if (this.bullets.indexOf(null) !== -1)
+    if (this.bullets.indexOf(null) !== -1 ||
+        this.bullets.indexOf(undefined) !== -1)
       this.bullets = this.bullets.filter((x) => (
         x !== null && x !== undefined
       ));
