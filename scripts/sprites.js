@@ -3,10 +3,12 @@ const degToRad = (deg) => deg * (3.14 / 180);
 const PLAYER_WIDTH = 190;
 const PLAYER_HEIGHT = 150;
 
-const BULLET_WIDTH = 75;
-const BULLET_HEIGHT = 200;
+const BULLET_WIDTH = 50;
+const BULLET_HEIGHT = 125;
 const BULLET_ANCHOR = .5;
 const BULLET_ROTATION = degToRad(-90);
+
+console.log(BULLET_ROTATION)
 
 class Player {
   constructor(container) {
@@ -39,9 +41,10 @@ class Player {
 }
 
 class BulletManager {
-  constructor(parent) {
+  constructor(container, parent) {
     /* BulletManager class
       * params:
+        - container: PIXI.Container "The container to put the bullets in"
         - parent: PIXI.Sprite "The entity that shoots the bullets"
       * returns:
         - null(is a constructor)
@@ -50,20 +53,29 @@ class BulletManager {
     this.bullets = [];
 
     this.parent = parent;
+    this.container = container;
 
   } update(dt) {
+    if (this.bullets.indexOf(null) !== -1)
+      this.bullets = this.bullets.filter((x) => (
+        x !== null && x !== undefined
+      ));
+
     for (let bullet of this.bullets) {
+      if (bullet === null || bullet === undefined)
+        continue;
       bullet.update(dt, this.bullets);
     }
   } shoot() {
-    this.bullets.push(new Bullet(this.parent));
+    this.bullets.push(new Bullet(this.container, this.parent));
   }
 }
 
 class Bullet {
-  constructor(parent) {
+  constructor(container, parent) {
     /* Bullet class
       * params:
+        - container: PIXI.Container "The parent container"
         - parent: PIXI.Sprite "The entity shooting it"
       * returns:
         null(is a constructor)
@@ -78,7 +90,10 @@ class Bullet {
     this.body.rotation = BULLET_ROTATION;
     this.body.anchor.set(BULLET_ANCHOR);
 
+    container.addChild(this.body)
+
     this.parent = parent;
+    this.container = container;
 
   } update(dt, bullets) {
     /* The update method
@@ -87,5 +102,13 @@ class Bullet {
         - dt: Number "The game's delta time"
         - bullets: Array<Bullet> "Bullet manager's active bullets"
     */
+    this.body.y -= 10 * dt;
+    if (this.body.y < 0) {
+      this.container.removeChild(this.body);
+      delete bullets[bullets.indexOf(this)];
+      delete this.body;
+      delete this;
+      return;
+    }
   }
 }

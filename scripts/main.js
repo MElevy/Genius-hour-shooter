@@ -12,7 +12,7 @@ const gameContainer = new PIXI.Container(); // Main container
 app.stage.addChild(gameContainer);
 
 const player = new Player(gameContainer);
-const playerBullets = new BulletManager(player);
+const playerBullets = new BulletManager(gameContainer, player.body);
 
 // Game variables
 let dt = 0;
@@ -22,7 +22,7 @@ app.ticker.add((delta) => {
   dt = delta;
 
   player.update(dt);
-  playerBullets.update();
+  playerBullets.update(dt);
 });
 
 // Key presses
