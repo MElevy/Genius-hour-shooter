@@ -8,11 +8,9 @@ const BULLET_HEIGHT = 125;
 const BULLET_ANCHOR = .5;
 const BULLET_ROTATION = degToRad(-90);
 
-console.log(BULLET_ROTATION)
-
-class Player {
+class Entity {
   constructor(container) {
-    /* Player class
+    /* Entity class
       * params:
         - container: PIXI.Container | PIXI.app "The parent container"
       * returns:
@@ -39,6 +37,10 @@ class Player {
     */
   }
 }
+
+class Player extends Entity { }
+
+class Enemy extends Entity { }
 
 class BulletManager {
   constructor(container, parent) {
