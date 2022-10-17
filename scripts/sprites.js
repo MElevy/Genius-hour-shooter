@@ -38,10 +38,6 @@ class Entity {
   }
 }
 
-class Player extends Entity { }
-
-class Enemy extends Entity { }
-
 class BulletManager {
   constructor(container, parent) {
     /* BulletManager class
