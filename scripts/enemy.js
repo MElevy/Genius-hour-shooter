@@ -1,5 +1,23 @@
 class EnemyManager {
+  constructor(container) {
+    /* EnemyManager class
+      * params:
+        - container: PIXI.Container "The container to put the enemy planes in"
+      * returns:
+        - null(is a constructor)
+    */
 
+    this.enemies = [];
+
+    this.parent = parent;
+  } update(dt) {
+    if (this.bullets.indexOf(null) !== -1
+      && this.bullets.indexOf(undefined) !== -1) {
+      this.bullets = this.bullets.filter(x =>
+        x !== null && x !== undefined
+      );
+    }
+  }
 }
 
 class Enemy extends Entity {
@@ -11,6 +29,8 @@ class Enemy extends Entity {
           null
     */
 
-    if ()
+    if (this.body.x >= 640) {
+
+    }
   }
 }
