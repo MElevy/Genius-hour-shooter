@@ -96,7 +96,7 @@ class Bullet {
 
   } update(dt, bullets) {
     /* The update method
-      * Meant to be called from a  bullet manager
+      * Meant to be called from a bullet manager
       * params:
         - dt: Number "The game's delta time"
         - bullets: Array<Bullet> "Bullet manager's active bullets"

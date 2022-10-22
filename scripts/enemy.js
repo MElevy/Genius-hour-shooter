@@ -10,6 +10,7 @@ class EnemyManager {
     this.enemies = [];
 
     this.parent = parent;
+
   } update(dt) {
     if (this.bullets.indexOf(null) !== -1
       && this.bullets.indexOf(undefined) !== -1) {
@@ -17,20 +18,22 @@ class EnemyManager {
         x !== null && x !== undefined
       );
     }
+
+    for (enemy of this.enemies) {
+
+    }
   }
 }
 
 class Enemy extends Entity {
   update(dt) {
     /* Update method(moves the character, etc...)
+      * Meant to be called from an EnemyManager
       * params:
         - dt: Number "The game's delta time"
+        - enemies: Array<Enemy> "The EnemyManager's active bullets"
       * returns:
           null
     */
-
-    if (this.body.x >= 640) {
-
-    }
   }
 }
