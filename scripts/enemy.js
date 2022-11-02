@@ -20,7 +20,7 @@ class EnemyManager {
     }
 
     for (enemy of this.enemies) {
-
+      enemy.update(dt);
     }
   }
 }
