@@ -22,6 +22,14 @@ class Files:
         def sprites_js():
             return send_file('scripts/sprites.js', mimetype = 'text/javascript')
 
+        @app.route('/scripts/player.js')
+        def player_js():
+            return send_file('scripts/player.js', mimetype = 'text/javascript')
+
+        @app.route('/scripts/enemy.js')
+        def enemy_js():
+            return send_file('scripts/enemy.js', mimetype = 'text/javascript')
+
     class Assets:
         @app.route('/assets/plane.png')
         def plane_png():

@@ -27,7 +27,8 @@ class Entity {
     this.body.y = 400;
 
     /* Add the player */
-    container.addChild(this.body);
+    this.container = container;
+    this.container.addChild(this.body);
   } update(dt) {
     /* Update method(moves the character, etc...)
       * params:

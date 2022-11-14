@@ -13,6 +13,7 @@ app.stage.addChild(gameContainer);
 
 const player = new Player(gameContainer);
 const playerBullets = new BulletManager(gameContainer, player.body);
+const enemyMgr = new EnemyManager(gameContainer);
 
 // Game variables
 let dt = 0;
@@ -21,8 +22,13 @@ let dt = 0;
 app.ticker.add((delta) => {
   dt = delta;
 
+  if (Math.random() * 10 > 9.9) {
+    enemyMgr.spawn();
+  }
+
   player.update(dt);
   playerBullets.update(dt);
+  enemyMgr.update(dt);
 });
 
 // Key presses
