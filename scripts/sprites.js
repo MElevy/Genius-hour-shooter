@@ -104,11 +104,12 @@ class Bullet {
     */
     this.body.y -= 10 * dt;
     if (this.body.y < 0) {
-      this.container.removeChild(this.body);
-      delete bullets[bullets.indexOf(this)];
-      delete this.body;
-      delete this;
-      return;
+      this.destruct();
     }
+  } destruct() {
+    this.container.removeChild(this.body);
+    delete bullets[bullets.indexOf(this)];
+    delete this.body;
+    delete this;
   }
 }
