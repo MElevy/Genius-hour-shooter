@@ -46,15 +46,18 @@ class Enemy extends Entity {
     */
     this.body.y += 1 * dt;
 
-    for (bullet of bulletManager.bullets) {
-      if (bullet.body.getBounds().instersects(this.body.getBounds())) {
-        this.destruct();
-        bullet.destruct();
+    for (let bullet of playerBullets.bullets) {
+      if (bullet === null || bullet === undefined)
+        continue;
+      if (b.hit(bullet.body, this.body)) {
+        this.destruct(enemies);
+        bullet.destruct(playerBullets.bullets);
+        return;
       }
     }
     if (this.body.y > 640)
       this.destruct();
-  } destruct() {
+  } destruct(enemies) {
     this.container.removeChild(this.body);
     delete enemies[enemies.indexOf(this)];
     delete this.body;

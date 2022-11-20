@@ -104,9 +104,9 @@ class Bullet {
     */
     this.body.y -= 10 * dt;
     if (this.body.y < 0) {
-      this.destruct();
+      this.destruct(bullets);
     }
-  } destruct() {
+  } destruct(bullets) {
     this.container.removeChild(this.body);
     delete bullets[bullets.indexOf(this)];
     delete this.body;

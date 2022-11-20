@@ -6,6 +6,7 @@ const app = new PIXI.Application({
 }); // Create the app
 
 const keyTracker = new KeyTracker();
+const b = new Bump(PIXI);
 
 /* Sprites */
 const gameContainer = new PIXI.Container(); // Main container
