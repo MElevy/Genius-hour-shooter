@@ -18,7 +18,7 @@ class Entity {
     */
 
     /* Create Sprite */
-    this.body = PIXI.Sprite.from('assets/plane.png');
+    this.body = PIXI.Sprite.from(ASSET_FOLDER + 'plane.png');
 
     /* Set attributes */
     this.body.width = PLAYER_WIDTH;
@@ -81,7 +81,7 @@ class Bullet {
         null(is a constructor)
     */
 
-    this.body = PIXI.Sprite.from('assets/bullet.png');
+    this.body = PIXI.Sprite.from(ASSET_FOLDER + 'bullet.png');
     this.body.x = parent.x + (parent.width / 2);
     this.body.y = parent.y;
     this.body.width = BULLET_WIDTH;
