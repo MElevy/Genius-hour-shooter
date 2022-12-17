@@ -5,7 +5,7 @@ const app = new PIXI.Application({
   backgroundColor: 0xeeeeee // Light gray
 }); // Create the app
 
-const ASSET_FOLDER = 'Genius-hour-shooter/assets/';
+const ASSET_FOLDER = '/Genius-hour-shooter/assets/';
 
 const keyTracker = new KeyTracker();
 const b = new Bump(PIXI);
