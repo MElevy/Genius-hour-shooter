@@ -58,6 +58,8 @@ class Enemy extends Entity {
     if (this.body.y > 640)
       this.destruct();
   } destruct(enemies) {
+    score ++;
+
     this.container.removeChild(this.body);
     delete enemies[enemies.indexOf(this)];
     delete this.body;

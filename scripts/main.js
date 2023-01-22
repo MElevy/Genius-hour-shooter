@@ -17,13 +17,16 @@ app.stage.addChild(gameContainer);
 const player = new Player(gameContainer);
 const playerBullets = new BulletManager(gameContainer, player.body);
 const enemyMgr = new EnemyManager(gameContainer);
+let score_label = new Label('0');
 
 // Game variables
 let dt = 0;
+let score = 0;
 
 // Gameloop
 app.ticker.add((delta) => {
   dt = delta;
+  score_label.text = `${score}`
 
   if (Math.random() * 10 > 9.9) {
     enemyMgr.spawn();
