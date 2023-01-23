@@ -44,7 +44,7 @@ class Enemy extends Entity {
       * returns:
           null
     */
-    this.body.y += 1 * dt;
+    this.body.y += planeSpeed * dt;
 
     for (let bullet of playerBullets.bullets) {
       if (bullet === null || bullet === undefined)

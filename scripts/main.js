@@ -28,11 +28,13 @@ gameContainer.addChild(scoreLabel)
 // Game variables
 let dt = 0;
 let score = 0;
+let planeSpeed = 1;
 
 // Gameloop
 app.ticker.add((delta) => {
   dt = delta;
   scoreLabel.text = `${score}`
+  planeSpeed += dt;
 
   if (Math.random() * 10 > 9.9) {
     enemyMgr.spawn();
