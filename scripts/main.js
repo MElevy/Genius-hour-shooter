@@ -19,6 +19,7 @@ const playerBullets = new BulletManager(gameContainer, player.body);
 const enemyMgr = new EnemyManager(gameContainer);
 
 const scoreLabel = new PIXI.Text('0');
+
 scoreLabel.x = 10;
 scoreLabel.y = 10;
 
