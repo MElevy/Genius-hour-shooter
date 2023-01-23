@@ -17,7 +17,8 @@ app.stage.addChild(gameContainer);
 const player = new Player(gameContainer);
 const playerBullets = new BulletManager(gameContainer, player.body);
 const enemyMgr = new EnemyManager(gameContainer);
-let score_label = new Label('0');
+const score_label = new Label('0');
+gameContainer.addChild(score_label)
 
 // Game variables
 let dt = 0;
