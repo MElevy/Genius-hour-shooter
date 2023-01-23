@@ -17,11 +17,12 @@ app.stage.addChild(gameContainer);
 const player = new Player(gameContainer);
 const playerBullets = new BulletManager(gameContainer, player.body);
 const enemyMgr = new EnemyManager(gameContainer);
-const score_label = new PIXI.Text('0');
-score_label.x = 10;
-score_label.y = 10;
 
-gameContainer.addChild(score_label)
+const scoreLabel = new PIXI.Text('0');
+scoreLabel.x = 10;
+scoreLabel.y = 10;
+
+gameContainer.addChild(scoreLabel)
 
 // Game variables
 let dt = 0;
