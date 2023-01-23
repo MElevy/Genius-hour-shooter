@@ -3,8 +3,8 @@ const degToRad = (deg) => deg * (3.14 / 180);
 const PLAYER_WIDTH = 190;
 const PLAYER_HEIGHT = 150;
 
-const BULLET_WIDTH = 50;
-const BULLET_HEIGHT = 125;
+const BULLET_WIDTH = 25;
+const BULLET_HEIGHT = 75;
 const BULLET_ANCHOR = .5;
 const BULLET_ROTATION = degToRad(-90);
 

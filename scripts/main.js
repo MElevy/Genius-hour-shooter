@@ -34,7 +34,7 @@ let planeSpeed = 1;
 app.ticker.add((delta) => {
   dt = delta;
   scoreLabel.text = `${score}`
-  planeSpeed += dt;
+  planeSpeed = score / 5;
 
   if (Math.random() * 10 > 9.9) {
     enemyMgr.spawn();
