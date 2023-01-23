@@ -31,7 +31,7 @@ let score = 0;
 // Gameloop
 app.ticker.add((delta) => {
   dt = delta;
-  score_label.text = `${score}`
+  scoreLabel.text = `${score}`
 
   if (Math.random() * 10 > 9.9) {
     enemyMgr.spawn();
